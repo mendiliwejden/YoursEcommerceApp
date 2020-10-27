@@ -1,0 +1,93 @@
+<app-header> </app-header>
+<app-navbar></app-navbar>
+<!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+  <img src="assets/img/fashion/fashion-header-bg-8.jpg" alt="fashion img" />
+  <div class="aa-catg-head-banner-area">
+    <div class="container">
+      <div class="aa-catg-head-banner-content">
+        <h2>LOGIN Page</h2>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Login</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / catg header banner section -->
+
+<!-- Cart view section -->
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <!-- The image half -->
+    <div class="col-md-6 d-none d-md-flex bg-image">
+      <img
+        src="assets/img/logolog.jpg"
+        alt=""
+        class="img-fluid mb-3 d-none d-md-block"
+      />
+    </div>
+
+    <!-- The content half -->
+    <div class="col-md-6 bg-light">
+      <div class="login d-flex align-items-center py-5">
+        <app-message></app-message>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto">
+              <h3 class="display-4">Welcome!</h3>
+              <p class="text-muted mb-4">
+                Log in to your account and discover our offers !
+              </p>
+              <form>
+                <div class="form-group mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    class="form-control"
+                    [(ngModel)]="email"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    class="form-control"
+                    [(ngModel)]="password"
+                  />
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input
+                    id="customCheck1"
+                    type="checkbox"
+                    checked
+                    class="custom-control-input"
+                  />
+                  <label for="customCheck1" class="custom-control-label"
+                    >Remember password</label
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-block"
+                  (click)="login()"
+                  [disabled]="btnDisabled"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+      </div>
+    </div>
+    <!-- End -->
+  </div>
+</div>
+
+<!-- / Cart view section -->
+<app-footer></app-footer>

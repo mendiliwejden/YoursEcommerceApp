@@ -1,0 +1,101 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      id="sidebarMenu"
+      class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    >
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/listCategory">
+              <span data-feather="file"></span>
+              Category
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/listProduct">
+              <span data-feather="shopping-cart"></span>
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">
+              <span data-feather="users"></span>
+              Orders
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <section id="myCategorys">
+        <div class="container p-5">
+          <app-message></app-message>
+          <div class="row">
+            <div class="col">
+              <h2>Categorys</h2>
+              <button
+                class="btn btn-primary my-3"
+                routerLink="/dashboard/addCategory"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+          <h4
+            *ngIf="categories && !categories.length"
+            class="display-2 text-center mt-5"
+          >
+            No Categorys has been posted yet !
+          </h4>
+          <table *ngIf="categories && categories.length" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Category</th>
+                <th>#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let categorie of categories" class="product">
+                <th>
+                  {{ categorie.id }}
+                </th>
+                <td>
+                  <h5>
+                    {{ categorie.name }}
+                  </h5>
+                </td>
+
+                <td>
+                  <a
+                    class="btn btn-warning"
+                    routerLink="/dashboard/editCategory/{{ categorie.id }}"
+                  >
+                    Update
+                  </a>
+
+                  <button
+                    (click)="delete(categorie.id)"
+                    class="btn btn-danger mx-3"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>

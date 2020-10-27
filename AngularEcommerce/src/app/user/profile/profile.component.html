@@ -1,0 +1,55 @@
+<app-header> </app-header>
+<app-navbar></app-navbar>
+
+<section id="aa-catg-head-banner"></section>
+<!-- catg header banner section -->
+<section id="profile">
+  <div class="container p-5">
+    <br /><br />
+    <h4 class="display-4">My Profile</h4>
+
+    <br />
+    <hr />
+    <div *ngIf="!data.user" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div *ngIf="data.user" class="row mt-5">
+      <div class="col-md-3">
+        <img
+          src="assets/img/user.png"
+          alt="userimage"
+          class="rounded-circle image"
+        />
+      </div>
+      <div class="col-md-8 ml-3">
+        <p id="name" class="lead">{{ data.user.nom }} {{ data.user.prenom }}</p>
+        <div *ngIf="!data.user.isAdmin">
+          <a routerLink="/dashboard" class="btn btn-warning"
+            ><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+            ADMIN</a
+          >
+        </div>
+        <br />
+        <a routerLink="/profile/orders" class="btn btn-warning">My Orders</a>
+        <br />
+        <br />
+
+        <a routerLink="/profile/settings" class="btn btn-warning"
+          >Change Account Settings</a
+        >
+        <br />
+        <br />
+        <a routerLink="/profile/address" class="btn btn-warning"
+          >Change Shipping Address</a
+        >
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- / Cart view section -->
+<app-footer></app-footer>

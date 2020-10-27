@@ -1,0 +1,96 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      id="sidebarMenu"
+      class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    >
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/listCategory">
+              <span data-feather="file"></span>
+              Category
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/listProduct">
+              <span data-feather="shopping-cart"></span>
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">
+              <span data-feather="users"></span>
+              Orders
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <section id="postProduct">
+        <div class="container p-5">
+          <h4 class="display-4" class="p-3 mb-2 bg-warning text-dark">
+            Post your Feature
+          </h4>
+          <hr />
+          <app-message></app-message>
+
+          <div class="card bg-light">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label
+                    class="form-control-label"
+                    class="text-secondary"
+                    class="h5"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    [(ngModel)]="feature.name"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-control-label"
+                    class="text-secondary"
+                    class="h5"
+                    >Value</label
+                  >
+                  <input
+                    type="text"
+                    name="value"
+                    [(ngModel)]="feature.value"
+                    class="form-control"
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  (click)="addfeature()"
+                  [disabled]="btnDisabled"
+                  class="btn btn-success"
+                >
+                  Post feature
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
